@@ -84,11 +84,17 @@ WSGI_APPLICATION = "todoproject.wsgi.application"
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 DATABASES = {
-    'default': dj_database_url.config(
-        conn_max_age=600,
-        conn_health_checks=True,
-    ),
+'default': {
+    'ENGINE': 'django.db.backends.postgresql_psycopg2', 
+    'NAME': 'marmez11/todo',
+    'HOST': 'db.bit.io',
+    'PORT': '5432',                    
+    'USER': 'marmez11',
+    'PASSWORD': 'v2_3zagL_tJeyTBYCTktnBWaj4anszZd',
+    }
 }
+db_from_env = dj_database_url.config()
+DATABASES['default'].update(db_from_env)
 
 
 
